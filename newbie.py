@@ -3,7 +3,6 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 import os
 from dotenv import load_dotenv
 from nltk.chat.util import Chat, reflections
-import librosa
 load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
