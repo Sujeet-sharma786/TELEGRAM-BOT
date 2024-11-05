@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes,
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 import os
 from dotenv import load_dotenv
 from nltk.chat.util import Chat, reflections
