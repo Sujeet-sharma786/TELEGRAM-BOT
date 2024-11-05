@@ -29,7 +29,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     response = chatbot.respond(text)
     await update.message.reply_text(response)
 
-
+# async def send_message_to_user(update:Update,context:ContextTypes.DEFAULT_TYPE):
+#     await context.bot.send_message(chat_id=update.effective_chat.id, text="hello,this is my bot!")
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
     
@@ -38,6 +39,7 @@ def main():
     
    
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    # app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, send_message_to_user))
     
   
     app.run_polling()
