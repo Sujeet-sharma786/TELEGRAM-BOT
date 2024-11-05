@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes,
 import os
 from dotenv import load_dotenv
 from nltk.chat.util import Chat, reflections
@@ -29,17 +29,18 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     response = chatbot.respond(text)
     await update.message.reply_text(response)
 
-# async def send_message_to_user(update:Update,context:ContextTypes.DEFAULT_TYPE):
-#     await context.bot.send_message(chat_id=update.effective_chat.id, text="hello,this is my bot!")
+async def send_message_to_user(update:Update,context:ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="hello,this is my bot!")
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
     
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
+    app.add_handler(CommandHandler("send_message",send_message_to_user))
     
    
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    # app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, send_message_to_user))
+  
     
   
     app.run_polling()
