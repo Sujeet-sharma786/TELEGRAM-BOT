@@ -16,6 +16,7 @@ tasks = ["I will take a small session for calming yourself and mind and then I'l
 
 
 
+global index
 index = 0
 async def calming_session(update:Update,context:ContextTypes.DEFAULT_TYPE):
     if tasks[index]=='send_audio_file':
@@ -24,6 +25,8 @@ async def calming_session(update:Update,context:ContextTypes.DEFAULT_TYPE):
             await context.bot.send_audio(chat_id=update.effective_chat.id,audio=audio)
             
         await context.bot.send_message("write done")
+
+        index+=1
         
 
     elif tasks[index]=='send_aasan_image':
