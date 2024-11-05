@@ -39,7 +39,7 @@ async def calming_session(update:Update,context:ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(tasks[index])
         index+=1
         if index==len(tasks)-1:
-            index==0
+            index=0
 
 
 
